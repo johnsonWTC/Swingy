@@ -24,8 +24,6 @@ public class GameFrame {
 
 
 
-
-
     public void createGameFrame() {
         gameFrame.setSize(800, 600);
         gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -33,7 +31,7 @@ public class GameFrame {
         gameFrame.setLayout(null);
         gameFrame.setVisible(true);
         container = gameFrame.getContentPane();
-     //   gameFrame.pack();
+
 
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100, 100, 600, 100);
