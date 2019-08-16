@@ -25,7 +25,7 @@ public class ChooseHerroFrame {
     private static Font titleFont = new Font("Time New Roma",Font.PLAIN,40);
     private static Font ButtonFont = new Font("Time New Roma",Font.PLAIN,20);
     private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton;
-    HerroScreenHander tittleScreenHander = new HerroScreenHander();
+    HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
     Tittle Tittle = new Tittle();
 
     public  ChooseHerroFrame (){
@@ -83,7 +83,7 @@ public class ChooseHerroFrame {
 
     }
 
-    public class HerroScreenHander implements ActionListener {
+    public class HerroScreenHandler implements ActionListener {
 
 
         @Override
@@ -97,9 +97,6 @@ public class ChooseHerroFrame {
 
         }
     }
-
-
-
 
 
 
@@ -185,7 +182,7 @@ public class ChooseHerroFrame {
 
     public void printNowthis(){
         String jam = "i am jam";
-        mainTextArea.setText(jam);
+
 
     }
 
@@ -211,7 +208,7 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
             mainTextArea.append(" johnson");
-
+            GamePlay.theGame();
         }
     }
 }

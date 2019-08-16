@@ -130,6 +130,7 @@ public class GameFrame {
 
            mainTextArea.append(" johnson");
 
+
         }
     }
 }
