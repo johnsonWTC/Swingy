@@ -130,7 +130,6 @@ public class GameFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-
            mainTextArea.append(" johnson");
 
         }
