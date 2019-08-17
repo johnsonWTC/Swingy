@@ -21,12 +21,17 @@ public class ChooseHerroFrame {
     private static Container container;
     private static JPanel titleNamePanel, herroButtunPanel,mainTextPanel,choiceButtonpanel;
     private static JLabel titleNameLabel;
+    private static JScrollPane movementPanel;
     private static JTextArea mainTextArea;
     private static Font titleFont = new Font("Time New Roma",Font.PLAIN,40);
     private static Font ButtonFont = new Font("Time New Roma",Font.PLAIN,20);
     private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
-    Tittle Tittle = new Tittle();
+    LeftMovement leftMovement = new LeftMovement();
+    RightMovement rightMovement = new RightMovement();
+    UpMovement upMovement = new UpMovement();
+   DownMovement downMovement = new DownMovement();
+
 
     public  ChooseHerroFrame (){
 
@@ -118,7 +123,10 @@ public class ChooseHerroFrame {
         container.add(titleNamePanel);
 
         mainTextPanel = new JPanel();
-        mainTextPanel.setBounds(100, 100, 600, 250);
+        movementPanel = new JScrollPane();
+        movementPanel.setBounds(280,100,600,250);
+        movementPanel.setBackground(Color.black);
+        mainTextPanel.setBounds(280, 100, 600, 250);
         mainTextPanel.setBackground(Color.black);
         container.add(mainTextPanel);
 
@@ -144,6 +152,7 @@ public class ChooseHerroFrame {
         leftbotton.setForeground(Color.black);
         leftbotton.setFont(ButtonFont);
         leftbotton.setFocusPainted(false);
+        leftbotton.addActionListener(leftMovement);
         choiceButtonpanel.add(leftbotton);
 
 
@@ -151,6 +160,7 @@ public class ChooseHerroFrame {
         rightbotton.setBackground(Color.black);
         rightbotton.setForeground(Color.black);
         rightbotton.setFont(ButtonFont);
+        rightbotton.addActionListener(rightMovement);
         choiceButtonpanel.add(rightbotton);
 
         upbotton = new JButton("up");
@@ -158,7 +168,7 @@ public class ChooseHerroFrame {
         upbotton.setForeground(Color.black);
         upbotton.setFont(ButtonFont);
         upbotton.setFocusPainted(false);
-        upbotton.addActionListener(tittleScreenHander);
+        upbotton.addActionListener(upMovement);
         choiceButtonpanel.add(upbotton);
 
 
@@ -167,49 +177,62 @@ public class ChooseHerroFrame {
         downbotton.setForeground(Color.black);
         downbotton.setFont(ButtonFont);
         downbotton.setFocusPainted(false);
-        downbotton.addActionListener(Tittle);
+        downbotton.addActionListener(downMovement);
         choiceButtonpanel.add(downbotton);
 
 
     }
 
 
-    public void printNow(){
-        String jam = "i am";
-        mainTextArea.setText(jam);
-
-    }
-
-    public void printNowthis(){
-        String jam = "i am jam";
-
-
-    }
 
 
 
-    public class TittleScreenHander implements ActionListener {
+    public class UpMovement implements ActionListener {
 
 
         @Override
         public void actionPerformed(ActionEvent event) {
 
-
-            printNow();
-
+            mainTextArea.setText("you move up");
 
         }
     }
 
-    public class Tittle implements ActionListener {
+
+    public class DownMovement implements ActionListener {
 
 
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.append(" johnson");
-            GamePlay.theGame();
+            mainTextArea.setText("you move down");
+
         }
     }
+    public class LeftMovement implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+
+            mainTextArea.setText("you move left");
+
+        }
+    }
+
+    public class RightMovement implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+
+            mainTextArea.setText("you move right");
+
+        }
+    }
+
+
+
+
 }
 

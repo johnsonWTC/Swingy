@@ -14,8 +14,8 @@ public class MapBuilder {
 
 
     Random random = new Random();
-  private   int herroY = boadsize/2;
-   private  int herroX = boadsize/2;
+    private   int herroY = boadsize/2;
+    private  int herroX = boadsize/2;
 
     int VillenY = random.nextInt(7) + 1;
     int VillenX = random.nextInt(7) + 1;
