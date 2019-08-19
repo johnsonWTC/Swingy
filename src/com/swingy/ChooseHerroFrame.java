@@ -15,25 +15,46 @@ public class ChooseHerroFrame {
 
     }
 
-    private static JFrame chooseHerro;
-    JFrame gameFrame = new JFrame();
 
+    int score = 0;
+    Herros herro =HerroMaker.HerroMaker("1");
+    int portionPower = 50;
+    int Numportion = 3;
+    int runningTries = 3;
+    int herroPower = herro.getHerroPower();
+    int herroHP = herro.getHerroHP();
+    int herroDefense = herro.getDefense();
+    int herroExpiriance = herro.getHerroExpiriance();
+    int herroWeapon = herro.getWeapon();
+    int herroAmor = herro.getHerroAmor();
+    int herroHelm = herro.getHerroHelm();
+    int villenStreagth = 1;
+    int villenHit;
+    int herroHit;
+    int HerroLifes = 3;
+    int NumVillen = 2;
+    int level = 1;
+    private static JFrame chooseHerro;
     private static Container container;
-    private static JPanel titleNamePanel, herroButtunPanel,mainTextPanel,choiceButtonpanel;
-    private static JLabel titleNameLabel;
-    private static JScrollPane movementPanel;
-    private static JTextArea mainTextArea;
+    private static JPanel titleNamePanel, herroButtunPanel,mainTextPanel,choiceButtonpanel,herroStatsPanel;
+    private static JLabel titleNameLabel,playerHpLabel,playerScoreLabel,playerLevelLabel,playerWeponLebel;
+    private static JTextArea mainTextArea,playerHp,playerScore,playerLevel,playerWepon;
     private static Font titleFont = new Font("Time New Roma",Font.PLAIN,40);
     private static Font ButtonFont = new Font("Time New Roma",Font.PLAIN,20);
-    private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton;
+    private static Font statsFont = new Font("Time New Roma",Font.PLAIN,15);
+    private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton,fightButton,runButton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
     LeftMovement leftMovement = new LeftMovement();
     RightMovement rightMovement = new RightMovement();
     UpMovement upMovement = new UpMovement();
-   DownMovement downMovement = new DownMovement();
+    DownMovement downMovement = new DownMovement();
+    RunningMovement runningMovement = new RunningMovement();
+    FightingMovement fightingMovement = new FightingMovement();
 
 
-    public  ChooseHerroFrame (){
+
+
+    public    ChooseHerroFrame (){
 
 
         chooseHerro = new JFrame();
@@ -48,7 +69,7 @@ public class ChooseHerroFrame {
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100,100,600,100);
         titleNamePanel.setBackground(Color.black);
-        titleNamePanel.setVisible(true);
+
 
         titleNameLabel = new JLabel("CHOOSE YOUR HERRO");
         titleNameLabel.setForeground(Color.white);
@@ -67,6 +88,7 @@ public class ChooseHerroFrame {
         Hulk.setForeground(Color.black);
         Hulk.setFont(ButtonFont);
         Hulk.addActionListener(tittleScreenHander);
+        herroButtunPanel.add(Hulk);
 
 
         captainAmerica = new JButton("CAPTAIN AMERICA");
@@ -74,10 +96,6 @@ public class ChooseHerroFrame {
         captainAmerica.setForeground(Color.black);
         captainAmerica.setFont(ButtonFont);
 
-
-
-
-        herroButtunPanel.add(Hulk);
         herroButtunPanel.add(captainAmerica);
 
 
@@ -103,30 +121,94 @@ public class ChooseHerroFrame {
         }
     }
 
-
-
     public void createGameFrame() {
-        chooseHerro.setVisible(true);
+
         herroButtunPanel.setVisible(false);
         titleNamePanel.setVisible(false);
-//        gameFrame.setSize(800, 600);
-//        gameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        gameFrame.getContentPane().setBackground(Color.black);
-//        gameFrame.setLayout(null);
-//        gameFrame.setVisible(true);
-//        container = gameFrame.getContentPane();
 
 
-        titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100, 100, 600, 100);
-        titleNamePanel.setBackground(Color.black);
-        container.add(titleNamePanel);
+        herroStatsPanel = new JPanel();
+        herroStatsPanel.setBounds(100,10,600,50);
+        herroStatsPanel.setBackground(Color.black);
+        container.add(herroStatsPanel);
+
+
+        playerHpLabel = new JLabel("PlayerHP");
+        playerHpLabel.setBounds(100,25,50,50);
+        playerHpLabel.setBackground(Color.black);
+        playerHpLabel.setForeground(Color.white);
+        playerHpLabel.setFont(statsFont);
+        herroStatsPanel.add(playerHpLabel);
+
+        playerHp = new JTextArea("2000");
+        playerHp.setBounds(100,50,50,50);
+        playerHp.setBackground(Color.black);
+        playerHp.setForeground(Color.white);
+        playerHp.setFont(statsFont);
+        herroStatsPanel.add(playerHp);
+
+
+
+
+        playerLevelLabel = new JLabel("PlayerLevel");
+        playerLevelLabel.setBounds(100,25,50,50);
+        playerLevelLabel.setBackground(Color.black);
+        playerLevelLabel.setForeground(Color.white);
+        playerLevelLabel.setFont(statsFont);
+        herroStatsPanel.add(playerLevelLabel);
+
+        playerLevel = new JTextArea("2000");
+        playerLevel.setBounds(100,50,50,50);
+        playerLevel.setBackground(Color.black);
+        playerLevel.setForeground(Color.white);
+        playerLevel.setFont(statsFont);
+        herroStatsPanel.add(playerLevel);
+
+
+
+
+
+
+
+        playerScoreLabel = new JLabel("PlayerScore");
+        playerScoreLabel.setBounds(100,25,50,50);
+        playerScoreLabel.setBackground(Color.black);
+        playerScoreLabel.setForeground(Color.white);
+        playerScoreLabel.setFont(statsFont);
+        herroStatsPanel.add(playerScoreLabel);
+
+        playerLevel = new JTextArea("2000");
+        playerLevel.setBounds(100,50,50,50);
+        playerLevel.setBackground(Color.black);
+        playerLevel.setForeground(Color.white);
+        playerLevel.setFont(statsFont);
+        herroStatsPanel.add(playerLevel);
+
+
+
+
+        playerWeponLebel = new JLabel("PlayerWepon");
+        playerWeponLebel.setBounds(100,25,50,50);
+        playerWeponLebel.setBackground(Color.black);
+        playerWeponLebel.setForeground(Color.white);
+        playerWeponLebel.setFont(statsFont);
+        herroStatsPanel.add(playerWeponLebel);
+
+        playerWepon = new JTextArea("2000");
+        playerWepon.setBounds(100,50,50,50);
+        playerWepon.setBackground(Color.black);
+        playerWepon.setForeground(Color.white);
+        playerWepon.setFont(statsFont);
+        herroStatsPanel.add(playerWepon);
+
+
+
+
+
+
 
         mainTextPanel = new JPanel();
-        movementPanel = new JScrollPane();
-        movementPanel.setBounds(280,100,600,250);
-        movementPanel.setBackground(Color.black);
-        mainTextPanel.setBounds(280, 100, 600, 250);
+        mainTextPanel.setBounds(100, 100, 600, 250);
         mainTextPanel.setBackground(Color.black);
         container.add(mainTextPanel);
 
@@ -147,9 +229,30 @@ public class ChooseHerroFrame {
         choiceButtonpanel.setLayout(new GridLayout(4, 1));
         container.add(choiceButtonpanel);
 
+
+        fightButton = new JButton("Fight");
+        fightButton.setBackground(Color.black);
+        fightButton.setForeground(Color.white);
+        fightButton.setFont(ButtonFont);
+        fightButton.setFocusPainted(false);
+        fightButton.addActionListener(fightingMovement);
+        choiceButtonpanel.add(fightButton);
+
+
+
+        runButton = new JButton("Run");
+        runButton.setBackground(Color.black);
+        runButton.setForeground(Color.white);
+        runButton.setFont(ButtonFont);
+        runButton.setFocusPainted(false);
+        runButton.addActionListener(runningMovement);
+        choiceButtonpanel.add(runButton);
+
+
+
         leftbotton = new JButton("left");
         leftbotton.setBackground(Color.black);
-        leftbotton.setForeground(Color.black);
+        leftbotton.setForeground(Color.white);
         leftbotton.setFont(ButtonFont);
         leftbotton.setFocusPainted(false);
         leftbotton.addActionListener(leftMovement);
@@ -158,14 +261,14 @@ public class ChooseHerroFrame {
 
         rightbotton = new JButton("Right");
         rightbotton.setBackground(Color.black);
-        rightbotton.setForeground(Color.black);
+        rightbotton.setForeground(Color.white);
         rightbotton.setFont(ButtonFont);
         rightbotton.addActionListener(rightMovement);
         choiceButtonpanel.add(rightbotton);
 
         upbotton = new JButton("up");
         upbotton.setBackground(Color.black);
-        upbotton.setForeground(Color.black);
+        upbotton.setForeground(Color.white);
         upbotton.setFont(ButtonFont);
         upbotton.setFocusPainted(false);
         upbotton.addActionListener(upMovement);
@@ -174,7 +277,7 @@ public class ChooseHerroFrame {
 
         downbotton = new JButton("down");
         downbotton.setBackground(Color.black);
-        downbotton.setForeground(Color.black);
+        downbotton.setForeground(Color.white);
         downbotton.setFont(ButtonFont);
         downbotton.setFocusPainted(false);
         downbotton.addActionListener(downMovement);
@@ -182,9 +285,6 @@ public class ChooseHerroFrame {
 
 
     }
-
-
-
 
 
     public class UpMovement implements ActionListener {
@@ -231,8 +331,26 @@ public class ChooseHerroFrame {
         }
     }
 
+    public class FightingMovement implements ActionListener {
 
 
+        @Override
+        public void actionPerformed(ActionEvent event) {
 
+            playerHp.setText(""+ score);
+
+        }
+    }
+
+    public class RunningMovement implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+
+            mainTextArea.setText("you are running");
+
+        }
+    }
 }
 

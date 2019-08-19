@@ -1,35 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18447700-5e7d-4312-8125-8f0df6bf6bf5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Altron.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Altron.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/BigRoobot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/BigRoobot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/CaptainAmerica.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/CaptainAmerica.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Choices.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Choices.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$HerroScreenHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$HerroScreenHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$Tittle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$Tittle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$TittleScreenHander.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$TittleScreenHander.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GameFrame$Tittle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GameFrame$Tittle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GameFrame$TittleScreenHander.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GameFrame$TittleScreenHander.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GameFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlay.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlayForGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlayForGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/HerroMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/HerroMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Herros.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Herros.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Hulk.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Hulk.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/IVillen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/IVillen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/LargeRoboot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/LargeRoboot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/LevelUp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/LevelUp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/MapBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/MapBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/SmallRoboot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/SmallRoboot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/TextBased.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/TextBased.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/VillenMaker.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/VillenMaker.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/simulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/simulation.class" afterDir="false" />
-    </list>
+    <list default="true" id="18447700-5e7d-4312-8125-8f0df6bf6bf5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +110,7 @@
       <workItem from="1565937617990" duration="11714000" />
       <workItem from="1565970061887" duration="1033000" />
       <workItem from="1566024838707" duration="7375000" />
+      <workItem from="1566196020715" duration="111000" />
     </task>
     <servers />
   </component>
