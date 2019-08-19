@@ -51,12 +51,13 @@ public class ChooseHerroFrame {
     DownMovement downMovement = new DownMovement();
     RunningMovement runningMovement = new RunningMovement();
     FightingMovement fightingMovement = new FightingMovement();
+    ContinueMovement continueMovement = new ContinueMovement();
     int villenHealth;
 
+
     Random random = new Random();
+    int i = random.nextInt(10);
     IVillen villen =  createVillen();
-
-
 
 
     public    ChooseHerroFrame (){
@@ -296,7 +297,7 @@ public class ChooseHerroFrame {
         continueButton.setBackground(Color.black);
         continueButton.setForeground(Color.white);
         continueButton.setFont(ButtonFont);
-        continueButton.addActionListener(rightMovement);
+        continueButton.addActionListener(continueMovement);
         choiceButtonpanel.add(continueButton);
 
         saveButton = new JButton("Save");
@@ -307,8 +308,12 @@ public class ChooseHerroFrame {
         choiceButtonpanel.add(saveButton);
 
 
-
-        mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
+        if (i % 3 == 0){
+            mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
+        }
+        else
+            mainTextArea.setText("please move left,right,up or down");
+       // mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
 
 
     }
@@ -324,19 +329,23 @@ public class ChooseHerroFrame {
 
 
 
-
-
-
-
-
-
     public class UpMovement implements ActionListener {
 
 
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.setText("you move up");
+            if(i > 5) {
+
+                i = random.nextInt(20);
+                if (i < 5) {
+                    mainTextArea.setText("You moved up, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                } else
+                    mainTextArea.setText("you moved up");
+            }
+            else
+                mainTextArea.append("\nyou have to fight or run");
+
 
         }
     }
@@ -348,7 +357,16 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.setText("you move down");
+            if(i > 5) {
+
+                i = random.nextInt(20);
+                if (i < 5) {
+                    mainTextArea.setText("You moved down, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                } else
+                    mainTextArea.setText("you moved down");
+            }
+            else
+                mainTextArea.append("\nyou have to fight or run");
 
         }
     }
@@ -358,7 +376,16 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.setText("you move left");
+            if(i > 5) {
+
+                i = random.nextInt(20);
+                if (i < 5) {
+                    mainTextArea.setText("You moved left, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                } else
+                    mainTextArea.setText("you moved left");
+            }
+            else
+                mainTextArea.append("\nyou have to fight or run");
 
         }
     }
@@ -369,7 +396,17 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.setText("you move right");
+            if(i > 5) {
+
+                i = random.nextInt(20);
+                if (i < 5) {
+                    mainTextArea.setText("You moved right, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                } else
+                    mainTextArea.setText("you moved right");
+            }
+            else
+                mainTextArea.append("\nyou have to fight or run");
+
 
         }
     }
@@ -387,13 +424,21 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.setText("you are fight the villen\n it does "+ villen.getRobootPower()+ " to you and you do " + herro.getHerroPower() + " to the villen\n " );
-            fight();
-            if ( villenHealth > 0){
-                 mainTextArea.append(" the villen did not die what would you like to do ?");
+            if (i < 5){
+                mainTextArea.setText("you are fight the villen\n it does "+ villen.getRobootPower()+ " to you and you do " + herro.getHerroPower() + " to the villen\n " );
+                playerHp.setText(""+herro.getHerroHP());
+                fight();
+                if ( villenHealth > 0){
+                    mainTextArea.append(" the villen did not die what would you like to do ?");
+                }
+                else {
+                    mainTextArea.append("the villen is dead would you like to continue");
+                    i = 7;
+                }
             }
             else
-                mainTextArea.append("the villen is dead would you like to continue");
+                mainTextArea.setText("please move left,right,up or down");
+
 
         }
     }
@@ -404,13 +449,16 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            if(runningTries > 0) {
-                mainTextArea.setText("you are running");
-                runningTries--;
+            if (i < 5) {
+                if (runningTries > 0) {
+                    mainTextArea.setText("you are running");
+                    runningTries--;
+                } else
+                    mainTextArea.setText("you are can not run this time");
+
             }
             else
-                mainTextArea.setText("you are can not run this time");
-
+                mainTextArea.setText("there is no villen to run from you chicken\ngo back and fight ");
         }
     }
 
@@ -421,6 +469,13 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
             villen = createVillen();
+            int i = random.nextInt(10);
+            if (i % 3 == 0){
+                mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
+            }
+            else
+                mainTextArea.setText("you continued the game, please move left,right,up or down");
+
 
 
 
