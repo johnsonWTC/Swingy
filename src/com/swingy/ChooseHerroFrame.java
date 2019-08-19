@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 
 public class ChooseHerroFrame {
@@ -17,7 +18,7 @@ public class ChooseHerroFrame {
 
 
     int score = 0;
-    Herros herro =HerroMaker.HerroMaker("1");
+    Herros herro = HerroMaker.HerroMaker("1");
     int portionPower = 50;
     int Numportion = 3;
     int runningTries = 3;
@@ -28,7 +29,7 @@ public class ChooseHerroFrame {
     int herroWeapon = herro.getWeapon();
     int herroAmor = herro.getHerroAmor();
     int herroHelm = herro.getHerroHelm();
-    int villenStreagth = 1;
+    int villenStreagth = 20;
     int villenHit;
     int herroHit;
     int HerroLifes = 3;
@@ -42,7 +43,7 @@ public class ChooseHerroFrame {
     private static Font titleFont = new Font("Time New Roma",Font.PLAIN,40);
     private static Font ButtonFont = new Font("Time New Roma",Font.PLAIN,20);
     private static Font statsFont = new Font("Time New Roma",Font.PLAIN,15);
-    private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton,fightButton,runButton;
+    private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton,fightButton,runButton,continueButton,saveButton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
     LeftMovement leftMovement = new LeftMovement();
     RightMovement rightMovement = new RightMovement();
@@ -50,11 +51,19 @@ public class ChooseHerroFrame {
     DownMovement downMovement = new DownMovement();
     RunningMovement runningMovement = new RunningMovement();
     FightingMovement fightingMovement = new FightingMovement();
+    int villenHealth;
+
+    Random random = new Random();
+    IVillen villen =  createVillen();
 
 
 
 
     public    ChooseHerroFrame (){
+
+
+
+
 
 
         chooseHerro = new JFrame();
@@ -214,7 +223,7 @@ public class ChooseHerroFrame {
 
 
         mainTextArea = new JTextArea("");
-        mainTextArea.setBounds(100, 100, 600, 250);
+        mainTextArea.setBounds(100, 100, 600, 400);
         mainTextArea.setBackground(Color.black);
         mainTextArea.setForeground(Color.white);
         mainTextArea.setFont(ButtonFont);
@@ -283,8 +292,42 @@ public class ChooseHerroFrame {
         downbotton.addActionListener(downMovement);
         choiceButtonpanel.add(downbotton);
 
+        continueButton = new JButton("Continue");
+        continueButton.setBackground(Color.black);
+        continueButton.setForeground(Color.white);
+        continueButton.setFont(ButtonFont);
+        continueButton.addActionListener(rightMovement);
+        choiceButtonpanel.add(continueButton);
+
+        saveButton = new JButton("Save");
+        saveButton.setBackground(Color.black);
+        saveButton.setForeground(Color.white);
+        saveButton.setFont(ButtonFont);
+        saveButton.addActionListener(rightMovement);
+        choiceButtonpanel.add(saveButton);
+
+
+
+        mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
+
 
     }
+
+    public IVillen createVillen(){
+
+        IVillen villen = VillenMaker.VillenMaker(random.nextInt(2) + 1);
+
+        return  villen;
+    }
+
+
+
+
+
+
+
+
+
 
 
     public class UpMovement implements ActionListener {
@@ -331,13 +374,26 @@ public class ChooseHerroFrame {
         }
     }
 
+    public void fight()
+    {
+        villenHealth = villen.getRootHealth() -herro.getHerroPower();
+
+
+    }
+
     public class FightingMovement implements ActionListener {
 
 
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            playerHp.setText(""+ score);
+            mainTextArea.setText("you are fight the villen\n it does "+ villen.getRobootPower()+ " to you and you do " + herro.getHerroPower() + " to the villen\n " );
+            fight();
+            if ( villenHealth > 0){
+                 mainTextArea.append(" the villen did not die what would you like to do ?");
+            }
+            else
+                mainTextArea.append("the villen is dead would you like to continue");
 
         }
     }
@@ -348,7 +404,25 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            mainTextArea.setText("you are running");
+            if(runningTries > 0) {
+                mainTextArea.setText("you are running");
+                runningTries--;
+            }
+            else
+                mainTextArea.setText("you are can not run this time");
+
+        }
+    }
+
+    public class ContinueMovement implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+
+            villen = createVillen();
+
+
 
         }
     }

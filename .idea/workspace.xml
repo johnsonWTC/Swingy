@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="18447700-5e7d-4312-8125-8f0df6bf6bf5" name="Default Changelist" comment="" />
+    <list default="true" id="18447700-5e7d-4312-8125-8f0df6bf6bf5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$DownMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$DownMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$FightingMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$FightingMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$HerroScreenHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$HerroScreenHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$LeftMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$LeftMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RightMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RightMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RunningMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RunningMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$UpMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$UpMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/swingy/ChooseHerroFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/ChooseHerroFrame.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +121,7 @@
       <workItem from="1565937617990" duration="11714000" />
       <workItem from="1565970061887" duration="1033000" />
       <workItem from="1566024838707" duration="7375000" />
-      <workItem from="1566196020715" duration="111000" />
+      <workItem from="1566196020715" duration="8381000" />
     </task>
     <servers />
   </component>
