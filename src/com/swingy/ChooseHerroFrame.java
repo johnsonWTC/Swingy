@@ -14,6 +14,7 @@ public class ChooseHerroFrame {
         new ChooseHerroFrame();
 
 
+
     }
 
 
@@ -35,7 +36,8 @@ public class ChooseHerroFrame {
     int NumVillen = 2;
     int level = 1;
     int fightRun = 0;
-    int move = 1;
+    int move = 0;
+    int continueVarable = 1;
 
 
     private static JFrame chooseHerro;
@@ -324,8 +326,9 @@ public class ChooseHerroFrame {
                     } else {
                         mainTextArea.setText("you moved up");
                         move++;
-                        if (move > 1) {
+                        if (move > 5) {
                             mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                            move = 0;
                             level++;
                             playerLevel.setText("" + level);
                         }
@@ -354,9 +357,10 @@ public class ChooseHerroFrame {
                     } else {
                         mainTextArea.setText("you moved down");
                         move++;
-                        if (move > 1) {
-                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                        if (move > 5) {
+                            mainTextArea.setText(" you have reached the boarder, you finished stage");
                             level++;
+                            move = 0;
                             playerLevel.setText("" + level);
                         }
                     }
@@ -383,9 +387,10 @@ public class ChooseHerroFrame {
                     } else {
                         mainTextArea.setText("you moved left");
                         move++;
-                        if (move > 1) {
-                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                        if (move > 5) {
+                            mainTextArea.setText(" you have reached the boarder, you finished stage");
                             level++;
+                            move = 0;
                             playerLevel.setText("" + level);
                         }
                     }
@@ -412,9 +417,10 @@ public class ChooseHerroFrame {
                     } else {
                         mainTextArea.setText("you moved right");
                         move++;
-                        if (move > 1) {
-                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                        if (move > 5) {
+                            mainTextArea.setText(" you have reached the boarder, you finished stage");
                             level++;
+                            move = 0;
                             playerLevel.setText("" + level);
                         }
                     }
@@ -447,12 +453,12 @@ public class ChooseHerroFrame {
                 } else {
                     mainTextArea.append("the villen is dead would you like to continue");
                     score = score + 10;
+                    playerScore.setText("" + score);
                     i = 7;
                     fightRun = 1;
                 }
             } else
-                mainTextArea.setText("please move left,right,up or down");
-
+                mainTextArea.setText("The is no villen to fight, please move left,right,up or down");
 
         }
     }
@@ -482,13 +488,19 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
             villen = createVillen();
-            int i = random.nextInt(10);
-            if (i % 3 == 0) {
-                mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
-            } else {
-                mainTextArea.setText("you continued the game, please move left,right,up or down");
-                fightRun = 0;
+
+            if(fightRun == 1) {
+                 i = random.nextInt(20);
+                if (i < 5) {
+                    mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                } else {
+                    mainTextArea.setText("you continued the game, please move left,right,up or down");
+                    fightRun = 0;
+                    i = 7;
+                }
             }
+            else
+                mainTextArea.setText(" please move up, down, left or right");
 
 
         }
