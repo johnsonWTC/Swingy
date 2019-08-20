@@ -25,25 +25,28 @@ public class ChooseHerroFrame {
     int herroPower = herro.getHerroPower();
     int herroHP = herro.getHerroHP();
     int herroDefense = herro.getDefense();
-    int herroExpiriance = herro.getHerroExpiriance();
+    int herroExpiriance = herro.getHerroAttack();
     int herroWeapon = herro.getWeapon();
     int herroAmor = herro.getHerroAmor();
     int herroHelm = herro.getHerroHelm();
-    int villenStreagth = 20;
-    int villenHit;
-    int herroHit;
+    int villenAttack = 20;
+    int villenHP = 20;
     int HerroLifes = 3;
     int NumVillen = 2;
     int level = 1;
+    int fightRun = 0;
+    int move = 1;
+
+
     private static JFrame chooseHerro;
     private static Container container;
-    private static JPanel titleNamePanel, herroButtunPanel,mainTextPanel,choiceButtonpanel,herroStatsPanel;
-    private static JLabel titleNameLabel,playerHpLabel,playerScoreLabel,playerLevelLabel,playerWeponLebel;
-    private static JTextArea mainTextArea,playerHp,playerScore,playerLevel,playerWepon;
-    private static Font titleFont = new Font("Time New Roma",Font.PLAIN,40);
-    private static Font ButtonFont = new Font("Time New Roma",Font.PLAIN,20);
-    private static Font statsFont = new Font("Time New Roma",Font.PLAIN,15);
-    private static JButton Hulk,captainAmerica,rightbotton,upbotton,downbotton,leftbotton,fightButton,runButton,continueButton,saveButton;
+    private static JPanel titleNamePanel, herroButtunPanel, mainTextPanel, choiceButtonpanel, herroStatsPanel;
+    private static JLabel titleNameLabel, playerHpLabel, playerScoreLabel, playerLevelLabel, playerWeponLebel;
+    private static JTextArea mainTextArea, playerHp, playerScore, playerLevel, playerWepon;
+    private static Font titleFont = new Font("Time New Roma", Font.PLAIN, 40);
+    private static Font ButtonFont = new Font("Time New Roma", Font.PLAIN, 20);
+    private static Font statsFont = new Font("Time New Roma", Font.PLAIN, 15);
+    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton, fightButton, runButton, continueButton, saveButton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
     LeftMovement leftMovement = new LeftMovement();
     RightMovement rightMovement = new RightMovement();
@@ -56,15 +59,11 @@ public class ChooseHerroFrame {
 
 
     Random random = new Random();
-    int i = random.nextInt(10);
-    IVillen villen =  createVillen();
+    int i = random.nextInt(15);
+    IVillen villen = createVillen();
 
 
-    public    ChooseHerroFrame (){
-
-
-
-
+    public ChooseHerroFrame() {
 
 
         chooseHerro = new JFrame();
@@ -77,7 +76,7 @@ public class ChooseHerroFrame {
 
 
         titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100,100,600,100);
+        titleNamePanel.setBounds(100, 100, 600, 100);
         titleNamePanel.setBackground(Color.black);
 
 
@@ -89,7 +88,7 @@ public class ChooseHerroFrame {
 
 
         herroButtunPanel = new JPanel();
-        herroButtunPanel.setBounds(300,400,200,100);
+        herroButtunPanel.setBounds(300, 400, 200, 100);
         herroButtunPanel.setBackground(Color.black);
         herroButtunPanel.setVisible(true);
 
@@ -113,7 +112,6 @@ public class ChooseHerroFrame {
         container.add(herroButtunPanel);
 
 
-
     }
 
     public class HerroScreenHandler implements ActionListener {
@@ -123,9 +121,7 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
 
-
             createGameFrame();
-
 
 
         }
@@ -138,83 +134,73 @@ public class ChooseHerroFrame {
 
 
         herroStatsPanel = new JPanel();
-        herroStatsPanel.setBounds(100,10,600,50);
+        herroStatsPanel.setBounds(100, 10, 600, 50);
         herroStatsPanel.setBackground(Color.black);
         container.add(herroStatsPanel);
 
 
         playerHpLabel = new JLabel("PlayerHP");
-        playerHpLabel.setBounds(100,25,50,50);
+        playerHpLabel.setBounds(100, 25, 50, 50);
         playerHpLabel.setBackground(Color.black);
         playerHpLabel.setForeground(Color.white);
         playerHpLabel.setFont(statsFont);
         herroStatsPanel.add(playerHpLabel);
 
-        playerHp = new JTextArea("2000");
-        playerHp.setBounds(100,50,50,50);
+        playerHp = new JTextArea("");
+        playerHp.setBounds(100, 50, 50, 50);
         playerHp.setBackground(Color.black);
         playerHp.setForeground(Color.white);
         playerHp.setFont(statsFont);
+        playerHp.setText("" + herro.getHerroHP());
         herroStatsPanel.add(playerHp);
 
 
-
-
         playerLevelLabel = new JLabel("PlayerLevel");
-        playerLevelLabel.setBounds(100,25,50,50);
+        playerLevelLabel.setBounds(100, 25, 50, 50);
         playerLevelLabel.setBackground(Color.black);
         playerLevelLabel.setForeground(Color.white);
         playerLevelLabel.setFont(statsFont);
         herroStatsPanel.add(playerLevelLabel);
 
-        playerLevel = new JTextArea("2000");
-        playerLevel.setBounds(100,50,50,50);
+        playerLevel = new JTextArea("");
+        playerLevel.setBounds(100, 50, 50, 50);
         playerLevel.setBackground(Color.black);
         playerLevel.setForeground(Color.white);
         playerLevel.setFont(statsFont);
+        playerLevel.setText("" + level);
         herroStatsPanel.add(playerLevel);
 
 
-
-
-
-
-
         playerScoreLabel = new JLabel("PlayerScore");
-        playerScoreLabel.setBounds(100,25,50,50);
+        playerScoreLabel.setBounds(100, 25, 50, 50);
         playerScoreLabel.setBackground(Color.black);
         playerScoreLabel.setForeground(Color.white);
         playerScoreLabel.setFont(statsFont);
         herroStatsPanel.add(playerScoreLabel);
 
-        playerLevel = new JTextArea("2000");
-        playerLevel.setBounds(100,50,50,50);
-        playerLevel.setBackground(Color.black);
-        playerLevel.setForeground(Color.white);
-        playerLevel.setFont(statsFont);
-        herroStatsPanel.add(playerLevel);
+        playerScore = new JTextArea("");
+        playerScore.setBounds(100, 50, 50, 50);
+        playerScore.setBackground(Color.black);
+        playerScore.setForeground(Color.white);
+        playerScore.setFont(statsFont);
+        playerScore.setText("" + score);
+        herroStatsPanel.add(playerScore);
 
 
-
-
-        playerWeponLebel = new JLabel("PlayerWepon");
-        playerWeponLebel.setBounds(100,25,50,50);
-        playerWeponLebel.setBackground(Color.black);
-        playerWeponLebel.setForeground(Color.white);
-        playerWeponLebel.setFont(statsFont);
-        herroStatsPanel.add(playerWeponLebel);
-
-        playerWepon = new JTextArea("2000");
-        playerWepon.setBounds(100,50,50,50);
-        playerWepon.setBackground(Color.black);
-        playerWepon.setForeground(Color.white);
-        playerWepon.setFont(statsFont);
-        herroStatsPanel.add(playerWepon);
-
-
-
-
-
+//
+//        playerWeponLebel = new JLabel("PlayerWepon");
+//        playerWeponLebel.setBounds(100,25,50,50);
+//        playerWeponLebel.setBackground(Color.black);
+//        playerWeponLebel.setForeground(Color.white);
+//        playerWeponLebel.setFont(statsFont);
+//        herroStatsPanel.add(playerWeponLebel);
+//
+//        playerWepon = new JTextArea("2000");
+//        playerWepon.setBounds(100,50,50,50);
+//        playerWepon.setBackground(Color.black);
+//        playerWepon.setForeground(Color.white);
+//        playerWepon.setFont(statsFont);
+//        herroStatsPanel.add(playerWepon);
 
 
         mainTextPanel = new JPanel();
@@ -230,7 +216,6 @@ public class ChooseHerroFrame {
         mainTextArea.setFont(ButtonFont);
         mainTextArea.setLineWrap(true);
         mainTextPanel.add(mainTextArea);
-
 
 
         choiceButtonpanel = new JPanel();
@@ -249,7 +234,6 @@ public class ChooseHerroFrame {
         choiceButtonpanel.add(fightButton);
 
 
-
         runButton = new JButton("Run");
         runButton.setBackground(Color.black);
         runButton.setForeground(Color.white);
@@ -257,7 +241,6 @@ public class ChooseHerroFrame {
         runButton.setFocusPainted(false);
         runButton.addActionListener(runningMovement);
         choiceButtonpanel.add(runButton);
-
 
 
         leftbotton = new JButton("left");
@@ -270,7 +253,7 @@ public class ChooseHerroFrame {
 
 
         rightbotton = new JButton("Right");
-        rightbotton.setBackground(Color.black);
+        rightbotton.setBackground(Color.green);
         rightbotton.setForeground(Color.white);
         rightbotton.setFont(ButtonFont);
         rightbotton.addActionListener(rightMovement);
@@ -308,25 +291,21 @@ public class ChooseHerroFrame {
         choiceButtonpanel.add(saveButton);
 
 
-        if (i % 3 == 0){
-            mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
-        }
-        else
+        if (i < 5) {
+            mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+        } else
             mainTextArea.setText("please move left,right,up or down");
-       // mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
+        // mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
 
 
     }
 
-    public IVillen createVillen(){
+    public IVillen createVillen() {
 
         IVillen villen = VillenMaker.VillenMaker(random.nextInt(2) + 1);
 
-        return  villen;
+        return villen;
     }
-
-
-
 
 
     public class UpMovement implements ActionListener {
@@ -335,18 +314,26 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            if(i > 5) {
+            if (fightRun != 1) {
+                if (i > 5) {
 
-                i = random.nextInt(20);
-                if (i < 5) {
-                    mainTextArea.setText("You moved up, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                    i = random.nextInt(20);
+                    if (i < 5) {
+                        mainTextArea.setText("You moved up, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+
+                    } else {
+                        mainTextArea.setText("you moved up");
+                        move++;
+                        if (move > 1) {
+                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                            level++;
+                            playerLevel.setText("" + level);
+                        }
+                    }
                 } else
-                    mainTextArea.setText("you moved up");
-            }
-            else
-                mainTextArea.append("\nyou have to fight or run");
-
-
+                    mainTextArea.append("\nyou have to fight or run");
+            } else
+                mainTextArea.append("\ncontinue or save");
         }
     }
 
@@ -357,36 +344,55 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            if(i > 5) {
+            if (fightRun != 1) {
+                if (i > 5) {
 
-                i = random.nextInt(20);
-                if (i < 5) {
-                    mainTextArea.setText("You moved down, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                    i = random.nextInt(20);
+                    if (i < 5) {
+                        mainTextArea.setText("You moved down, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+
+                    } else {
+                        mainTextArea.setText("you moved down");
+                        move++;
+                        if (move > 1) {
+                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                            level++;
+                            playerLevel.setText("" + level);
+                        }
+                    }
                 } else
-                    mainTextArea.setText("you moved down");
-            }
-            else
-                mainTextArea.append("\nyou have to fight or run");
-
+                    mainTextArea.append("\nyou have to fight or run");
+            } else
+                mainTextArea.append("\ncontinue or save");
         }
     }
+
     public class LeftMovement implements ActionListener {
 
 
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            if(i > 5) {
+            if (fightRun != 1) {
+                if (i > 5) {
 
-                i = random.nextInt(20);
-                if (i < 5) {
-                    mainTextArea.setText("You moved left, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                    i = random.nextInt(20);
+                    if (i < 5) {
+                        mainTextArea.setText("You moved left, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+
+                    } else {
+                        mainTextArea.setText("you moved left");
+                        move++;
+                        if (move > 1) {
+                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                            level++;
+                            playerLevel.setText("" + level);
+                        }
+                    }
                 } else
-                    mainTextArea.setText("you moved left");
-            }
-            else
-                mainTextArea.append("\nyou have to fight or run");
-
+                    mainTextArea.append("\nyou have to fight or run");
+            } else
+                mainTextArea.append("\ncontinue or save");
         }
     }
 
@@ -396,24 +402,31 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            if(i > 5) {
+            if (fightRun != 1) {
+                if (i > 5) {
 
-                i = random.nextInt(20);
-                if (i < 5) {
-                    mainTextArea.setText("You moved right, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                    i = random.nextInt(20);
+                    if (i < 5) {
+                        mainTextArea.setText("You moved right, then \n" + villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+
+                    } else {
+                        mainTextArea.setText("you moved right");
+                        move++;
+                        if (move > 1) {
+                            mainTextArea.setText(" you have reached the boarder, you fineshed stage");
+                            level++;
+                            playerLevel.setText("" + level);
+                        }
+                    }
                 } else
-                    mainTextArea.setText("you moved right");
-            }
-            else
-                mainTextArea.append("\nyou have to fight or run");
-
-
+                    mainTextArea.append("\nyou have to fight or run");
+            } else
+                mainTextArea.append("\ncontinue or save");
         }
     }
 
-    public void fight()
-    {
-        villenHealth = villen.getRootHealth() -herro.getHerroPower();
+    public void fight() {
+        villenHealth = villen.getRootHealth() - herro.getHerroAttack();
 
 
     }
@@ -424,19 +437,20 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            if (i < 5){
-                mainTextArea.setText("you are fight the villen\n it does "+ villen.getRobootPower()+ " to you and you do " + herro.getHerroPower() + " to the villen\n " );
-                playerHp.setText(""+herro.getHerroHP());
+            if (i < 5) {
+                mainTextArea.setText("you are fight the villen\n it does " + villen.getRobootPower() + " to you and you do " + herro.getHerroPower() + " to the villen\n ");
+                playerHp.setText("" + herro.getHerroHP());
                 fight();
-                if ( villenHealth > 0){
+                if (villenHealth > 0) {
                     mainTextArea.append(" the villen did not die what would you like to do ?");
-                }
-                else {
+
+                } else {
                     mainTextArea.append("the villen is dead would you like to continue");
+                    score = score + 10;
                     i = 7;
+                    fightRun = 1;
                 }
-            }
-            else
+            } else
                 mainTextArea.setText("please move left,right,up or down");
 
 
@@ -456,8 +470,7 @@ public class ChooseHerroFrame {
                 } else
                     mainTextArea.setText("you are can not run this time");
 
-            }
-            else
+            } else
                 mainTextArea.setText("there is no villen to run from you chicken\ngo back and fight ");
         }
     }
@@ -470,16 +483,14 @@ public class ChooseHerroFrame {
 
             villen = createVillen();
             int i = random.nextInt(10);
-            if (i % 3 == 0){
-                mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
-            }
-            else
+            if (i % 3 == 0) {
+                mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+            } else {
                 mainTextArea.setText("you continued the game, please move left,right,up or down");
-
-
+                fightRun = 0;
+            }
 
 
         }
     }
 }
-

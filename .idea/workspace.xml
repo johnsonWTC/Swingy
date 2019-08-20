@@ -12,9 +12,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RunningMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RunningMovement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$UpMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$UpMovement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/swingy/ChooseHerroFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/ChooseHerroFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/swingy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -124,7 +122,8 @@
       <workItem from="1565937617990" duration="11714000" />
       <workItem from="1565970061887" duration="1033000" />
       <workItem from="1566024838707" duration="7375000" />
-      <workItem from="1566196020715" duration="13390000" />
+      <workItem from="1566196020715" duration="14095000" />
+      <workItem from="1566280288367" duration="1315000" />
     </task>
     <servers />
   </component>
