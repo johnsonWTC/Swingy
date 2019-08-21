@@ -489,18 +489,26 @@ public class ChooseHerroFrame {
 
             villen = createVillen();
 
-            if(fightRun == 1) {
-                 i = random.nextInt(20);
-                if (i < 5) {
-                    mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
-                } else {
-                    mainTextArea.setText("you continued the game, please move left,right,up or down");
-                    fightRun = 0;
-                    i = 7;
+
+            if (i < 5) {
+
+                if (fightRun == 1) {
+                    i = random.nextInt(20);
+                    if (i < 5) {
+                        mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+                    } else {
+                        mainTextArea.setText("you continued the game, please move left,right,up or down");
+                        fightRun = 0;
+                        i = 7;
+                    }
+
                 }
-            }
             else
                 mainTextArea.setText(" please move up, down, left or right");
+        }
+            else {
+                mainTextArea.append("\nplease move up, down, left or right");
+            }
 
 
         }
