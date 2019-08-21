@@ -4,12 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
 public class ChooseHerroFrame {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
 
         new ChooseHerroFrame();
 
@@ -38,6 +41,9 @@ public class ChooseHerroFrame {
     int fightRun = 0;
     int move = 0;
     int continueVarable = 1;
+    String payerName = "jam";
+    String Line;
+    BufferedReader reader;
 
 
     private static JFrame chooseHerro;
@@ -48,7 +54,7 @@ public class ChooseHerroFrame {
     private static Font titleFont = new Font("Time New Roma", Font.PLAIN, 40);
     private static Font ButtonFont = new Font("Time New Roma", Font.PLAIN, 20);
     private static Font statsFont = new Font("Time New Roma", Font.PLAIN, 15);
-    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton, fightButton, runButton, continueButton, saveButton;
+    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton, fightButton, runButton, continueButton, saveButton,testButton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
     LeftMovement leftMovement = new LeftMovement();
     RightMovement rightMovement = new RightMovement();
@@ -57,12 +63,17 @@ public class ChooseHerroFrame {
     RunningMovement runningMovement = new RunningMovement();
     FightingMovement fightingMovement = new FightingMovement();
     ContinueMovement continueMovement = new ContinueMovement();
+    TestMovement testMovement = new TestMovement();
+    Saving saving = new Saving();
+
     int villenHealth;
 
 
     Random random = new Random();
     int i = random.nextInt(15);
     IVillen villen = createVillen();
+    ArrayList<Object> playerStats = new ArrayList<>();
+
 
 
     public ChooseHerroFrame() {
@@ -289,8 +300,23 @@ public class ChooseHerroFrame {
         saveButton.setBackground(Color.black);
         saveButton.setForeground(Color.white);
         saveButton.setFont(ButtonFont);
-        saveButton.addActionListener(rightMovement);
+        saveButton.addActionListener(saving);
         choiceButtonpanel.add(saveButton);
+
+        testButton = new JButton("Test");
+        testButton.setBackground(Color.black);
+        testButton.setForeground(Color.white);
+        testButton.setFont(ButtonFont);
+        testButton.addActionListener(testMovement);
+        choiceButtonpanel.add(testButton);
+
+        playerStats.add(payerName);
+        playerStats.add(herroHP);
+        playerStats.add(level);
+        playerStats.add(herroAmor);
+        playerStats.add(score);
+        playerStats.add(herroPower);
+
 
 
         if (i < 5) {
@@ -511,6 +537,58 @@ public class ChooseHerroFrame {
             }
 
 
+        }
+    }
+
+    public class TestMovement implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+
+
+            try {
+                 reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/jam.txt"));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            while(true){
+                try {
+                    if (!((Line = reader.readLine())!= null)) break;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                mainTextArea.setText(Line);
+
+            }
+
+
+        }
+    }
+
+
+
+    public class Saving implements ActionListener {
+
+
+        @Override
+        public void actionPerformed(ActionEvent event) {
+
+
+            playerStats.toString();
+            String fileName = payerName +".txt";
+
+            FileWriter fw = null;
+            try {
+                fw = new FileWriter(fileName);
+
+                String jam = playerStats.toString();
+                fw.write(jam);
+                mainTextArea.setText("game saved");
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
