@@ -12,10 +12,9 @@ import java.util.Random;
 
 public class ChooseHerroFrame {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
         new ChooseHerroFrame();
-
 
 
     }
@@ -41,7 +40,7 @@ public class ChooseHerroFrame {
     int fightRun = 0;
     int move = 0;
     int continueVarable = 1;
-    String payerName = "jam";
+    String payerName = "Now";
     String Line;
     BufferedReader reader;
 
@@ -54,7 +53,7 @@ public class ChooseHerroFrame {
     private static Font titleFont = new Font("Time New Roma", Font.PLAIN, 40);
     private static Font ButtonFont = new Font("Time New Roma", Font.PLAIN, 20);
     private static Font statsFont = new Font("Time New Roma", Font.PLAIN, 15);
-    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton, fightButton, runButton, continueButton, saveButton,testButton;
+    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton, fightButton, runButton, continueButton, saveButton, testButton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
     LeftMovement leftMovement = new LeftMovement();
     RightMovement rightMovement = new RightMovement();
@@ -65,6 +64,7 @@ public class ChooseHerroFrame {
     ContinueMovement continueMovement = new ContinueMovement();
     TestMovement testMovement = new TestMovement();
     Saving saving = new Saving();
+    String playerStatistics;
 
     int villenHealth;
 
@@ -73,7 +73,7 @@ public class ChooseHerroFrame {
     int i = random.nextInt(15);
     IVillen villen = createVillen();
     ArrayList<Object> playerStats = new ArrayList<>();
-
+    ArrayList<Object> playerNames = new ArrayList<>();
 
 
     public ChooseHerroFrame() {
@@ -317,6 +317,7 @@ public class ChooseHerroFrame {
         playerStats.add(score);
         playerStats.add(herroPower);
 
+        playerStatistics = herroHP + " " +level+ " " + score;
 
 
         if (i < 5) {
@@ -528,11 +529,9 @@ public class ChooseHerroFrame {
                         i = 7;
                     }
 
-                }
-            else
-                mainTextArea.setText(" please move up, down, left or right");
-        }
-            else {
+                } else
+                    mainTextArea.setText(" please move up, down, left or right");
+            } else {
                 mainTextArea.append("\nplease move up, down, left or right");
             }
 
@@ -548,24 +547,28 @@ public class ChooseHerroFrame {
 
 
             try {
-                 reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/jam.txt"));
+                reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/"+ payerName+ ".txt"));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
-            while(true){
+            while (true) {
                 try {
-                    if (!((Line = reader.readLine())!= null)) break;
+                    if (!((Line = reader.readLine()) != null)) break;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 mainTextArea.setText(Line);
+                String splited[] = Line.split(" ");
+                herroHP = Integer.parseInt(splited[0]);
+                level = Integer.parseInt(splited[1]);
+                score = Integer.parseInt(splited[2]);
+                playerHp.setText(""+ herroHP);
+                playerLevel.setText(""+level);
+                playerScore.setText(""+score);
 
             }
-
-
         }
     }
-
 
 
     public class Saving implements ActionListener {
@@ -574,15 +577,15 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-
+            playerNames.add(payerName);
             playerStats.toString();
-            String fileName = payerName +".txt";
+            String fileName = payerName + ".txt";
 
             FileWriter fw = null;
             try {
                 fw = new FileWriter(fileName);
 
-                String jam = playerStats.toString();
+                String jam = playerStatistics;
                 fw.write(jam);
                 mainTextArea.setText("game saved");
                 fw.close();
@@ -591,4 +594,5 @@ public class ChooseHerroFrame {
             }
         }
     }
+
 }
