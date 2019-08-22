@@ -78,52 +78,96 @@ public class ChooseHerroFrame {
 
     public ChooseHerroFrame() {
 
-
-        chooseHerro = new JFrame();
-        chooseHerro.setSize(800, 600);
-        chooseHerro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        chooseHerro.getContentPane().setBackground(Color.black);
-        chooseHerro.setLayout(null);
-        chooseHerro.setVisible(true);
-        container = chooseHerro.getContentPane();
+        JFrame frame = new JFrame();
+        frame.setTitle("text");
+        frame.setSize(800,600);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-        titleNamePanel = new JPanel();
-        titleNamePanel.setBounds(100, 100, 600, 100);
-        titleNamePanel.setBackground(Color.black);
+        JPanel tittleNamePanel = new JPanel();
+        tittleNamePanel.setBounds(100,100,600,100);
+        tittleNamePanel.setBackground(Color.black);
+        frame.add(tittleNamePanel);
 
-
-        titleNameLabel = new JLabel("CHOOSE YOUR HERRO");
+        JLabel titleNameLabel = new JLabel("CHOOSE YOUR HERRO");
         titleNameLabel.setForeground(Color.white);
         titleNameLabel.setFont(titleFont);
-        titleNamePanel.add(titleNameLabel);
-        titleNamePanel.setVisible(true);
+        tittleNamePanel.add(titleNameLabel);
+        tittleNamePanel.setVisible(true);
 
 
-        herroButtunPanel = new JPanel();
-        herroButtunPanel.setBounds(300, 400, 200, 100);
-        herroButtunPanel.setBackground(Color.black);
+
+        JPanel   herroButtunPanel = new JPanel();
+        herroButtunPanel.setBounds(300, 400, 240, 100);
+        herroButtunPanel.setBackground(Color.white);
         herroButtunPanel.setVisible(true);
 
-        Hulk = new JButton("HULK");
+        frame.add(herroButtunPanel);
+
+        JButton Hulk = new JButton("HULK");
         Hulk.setBackground(Color.black);
-        Hulk.setForeground(Color.black);
+//        Hulk.setForeground(Color.black);
         Hulk.setFont(ButtonFont);
         Hulk.addActionListener(tittleScreenHander);
         herroButtunPanel.add(Hulk);
 
 
-        captainAmerica = new JButton("CAPTAIN AMERICA");
+        JButton captainAmerica = new JButton("CAPTAIN AMERICA");
         captainAmerica.setBackground(Color.black);
-        captainAmerica.setForeground(Color.black);
+//        captainAmerica.setForeground(Color.black);
         captainAmerica.setFont(ButtonFont);
 
         herroButtunPanel.add(captainAmerica);
 
 
-        container.add(titleNamePanel);
-        container.add(herroButtunPanel);
+        frame.setVisible(true);
 
+
+//        chooseHerro = new JFrame();
+//        chooseHerro.setSize(800, 600);
+//        chooseHerro.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        chooseHerro.getContentPane().setBackground(Color.black);
+//        chooseHerro.setLayout(null);
+//        chooseHerro.setVisible(true);
+//        container = chooseHerro.getContentPane();
+//
+//
+//        titleNamePanel = new JPanel();
+//        titleNamePanel.setBounds(100, 100, 600, 100);
+//        titleNamePanel.setBackground(Color.black);
+//
+//
+//        titleNameLabel = new JLabel("CHOOSE YOUR HERRO");
+//        titleNameLabel.setForeground(Color.white);
+//        titleNameLabel.setFont(titleFont);
+//        titleNamePanel.add(titleNameLabel);
+//        titleNamePanel.setVisible(true);
+//
+//
+//        herroButtunPanel = new JPanel();
+//        herroButtunPanel.setBounds(300, 400, 200, 100);
+//        herroButtunPanel.setBackground(Color.black);
+//        herroButtunPanel.setVisible(true);
+//
+//        Hulk = new JButton("HULK");
+//        Hulk.setBackground(Color.black);
+//        Hulk.setForeground(Color.black);
+//        Hulk.setFont(ButtonFont);
+//        Hulk.addActionListener(tittleScreenHander);
+//        herroButtunPanel.add(Hulk);
+//
+//
+//        captainAmerica = new JButton("CAPTAIN AMERICA");
+//        captainAmerica.setBackground(Color.black);
+//        captainAmerica.setForeground(Color.black);
+//        captainAmerica.setFont(ButtonFont);
+//
+//        herroButtunPanel.add(captainAmerica);
+//
+//
+//        container.add(titleNamePanel);
+//        container.add(herroButtunPanel);
+//
 
     }
 
