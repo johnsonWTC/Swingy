@@ -71,6 +71,7 @@ public class ChooseHerroFrame {
     TestMovement testMovement = new TestMovement();
     SaveName saveName = new SaveName();
     Saving saving = new Saving();
+    //SaveNameContinue saveNameContinue = new SaveNameContinue();
 
     int villenHealth;
 
@@ -83,6 +84,9 @@ public class ChooseHerroFrame {
 
 
     public void ChooseHerroFrame() {
+
+      //  payerName = text.getText();
+      //  dataBase();
 
 
 //        chooseHerro = new JFrame();
@@ -197,6 +201,8 @@ public class ChooseHerroFrame {
     }
 
     public ChooseHerroFrame() {
+
+
 
         chooseHerro = new JFrame();
         chooseHerro.setSize(800, 600);
@@ -319,6 +325,7 @@ public class ChooseHerroFrame {
         startButtonPanel.add(newButton);
 
 
+
     }
 
     public class HerroScreenHandler implements ActionListener {
@@ -347,6 +354,8 @@ public class ChooseHerroFrame {
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+
+            Game:
             while (true) {
                 try {
                     if (!((Line = reader.readLine()) != null)) break;
@@ -356,8 +365,9 @@ public class ChooseHerroFrame {
 
                 String splited[] = Line.split(" ");
 
+
                 int i = 0;
-                while (3 > i) {
+                while (i < splited.length) {
                     playerNames.add(splited[i]);
                     i++;
                 }
@@ -372,8 +382,11 @@ public class ChooseHerroFrame {
                     errorMessege.setText("the name is not contained");
                     payerName = text.getText();
                      playerStatistics = herroHP + " " + level + " " + score;
+                    playerNames.add(text.getText());
                     theSavingFuction();
-                    ChooseHerroFrame();
+                    dataBase();
+                 ChooseHerroFrame();
+                 break Game;
 
                 }
 
@@ -384,6 +397,8 @@ public class ChooseHerroFrame {
 
 
     }
+
+
 
 
     public class StartGame implements ActionListener {
@@ -1040,9 +1055,8 @@ public class ChooseHerroFrame {
         @Override
         public void actionPerformed(ActionEvent event) {
 
-            playerNames.add(payerName);
-            playerStats.toString();
-            jay = mainTextArea.getText();
+        //    playerNames.add(payerName);
+        //    playerStats.toString();
             String fileName = payerName + ".txt";
 
             FileWriter fw = null;
@@ -1060,31 +1074,30 @@ public class ChooseHerroFrame {
         }
     }
 
-    public void theContinueFuction() {
+
+    public void dataBase(){
+
+        FileWriter fw = null;
+
         try {
-            reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
-        } catch (FileNotFoundException e) {
+            fw = new FileWriter("names.txt",true);
+
+
+            fw.write(" "+ payerName);
+
+
+            fw.close();
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        while (true) {
-            try {
-                if (!((Line = reader.readLine()) != null)) break;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            mainTextArea.setText(Line);
-            String splited[] = Line.split(" ");
-            herroHP = Integer.parseInt(splited[0]);
-            level = Integer.parseInt(splited[1]);
-            score = Integer.parseInt(splited[2]);
-            playerHp.setText("" + herroHP);
-            playerLevel.setText("" + level);
-            playerScore.setText("" + score);
-        }
+
+
     }
 
+
+
     public void theSavingFuction(){
-        playerNames.add(payerName);
+       // playerNames.add(payerName);
 
         String fileName = payerName + ".txt";
 
@@ -1100,6 +1113,9 @@ public class ChooseHerroFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
     }
 
     public void theLoadingValueFuction(){
