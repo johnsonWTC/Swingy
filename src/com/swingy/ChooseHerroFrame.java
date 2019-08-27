@@ -1058,6 +1058,7 @@ public class ChooseHerroFrame {
         //    playerNames.add(payerName);
         //    playerStats.toString();
             String fileName = payerName + ".txt";
+            playerStatistics = herroHP + " " + level + " " + score;
 
             FileWriter fw = null;
             try {
