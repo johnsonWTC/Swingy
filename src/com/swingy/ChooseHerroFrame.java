@@ -12,10 +12,9 @@ import java.util.Random;
 
 public class ChooseHerroFrame {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
 
         new ChooseHerroFrame();
-
 
 
     }
@@ -41,37 +40,36 @@ public class ChooseHerroFrame {
     int fightRun = 0;
     int move = 0;
     int continueVarable = 1;
-    String payerName = "god";
+    String payerName;
     String Line;
     BufferedReader reader;
     String playerStatistics;
     String jay;
-    String  splited[];
-
+    String splited[];
 
 
     private static JFrame chooseHerro;
     private static Container container;
-    private static JPanel titleNamePanel, herroButtunPanel, mainTextPanel, choiceButtonpanel, herroStatsPanel,EnterNamePanel,startButtonPanel;
+    private static JPanel titleNamePanel, herroButtunPanel, mainTextPanel, choiceButtonpanel, herroStatsPanel, EnterNamePanel, startButtonPanel;
     private static JLabel titleNameLabel, playerHpLabel, playerScoreLabel, playerLevelLabel, playerWeponLebel;
     private static JTextArea mainTextArea, playerHp, playerScore, playerLevel, playerWepon;
     private static Font titleFont = new Font("Time New Roma", Font.PLAIN, 40);
     private static Font ButtonFont = new Font("Time New Roma", Font.PLAIN, 20);
     private static Font statsFont = new Font("Time New Roma", Font.PLAIN, 15);
-    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton,StartButton ,fightButton, runButton, continueButton, saveButton,testButton;
+    private static JButton Hulk, captainAmerica, rightbotton, upbotton, downbotton, leftbotton, StartButton, fightButton, runButton, continueButton, saveButton, testButton;
     HerroScreenHandler tittleScreenHander = new HerroScreenHandler();
-    JTextField text,errorMessege;
+    JTextField text, errorMessege;
     RightMovement rightMovement = new RightMovement();
     UpMovement upMovement = new UpMovement();
-    LeftMovement leftMovement= new LeftMovement();
-    StartGame startGame= new StartGame();
+    LeftMovement leftMovement = new LeftMovement();
+    StartGame startGame = new StartGame();
     EnterName enterName = new EnterName();
     DownMovement downMovement = new DownMovement();
     RunningMovement runningMovement = new RunningMovement();
     FightingMovement fightingMovement = new FightingMovement();
     ContinueMovement continueMovement = new ContinueMovement();
     TestMovement testMovement = new TestMovement();
-    SaveName saveName =new SaveName();
+    SaveName saveName = new SaveName();
     Saving saving = new Saving();
 
     int villenHealth;
@@ -82,7 +80,6 @@ public class ChooseHerroFrame {
     IVillen villen = createVillen();
     ArrayList<Object> playerStats = new ArrayList<>();
     ArrayList<String> playerNames = new ArrayList<>();
-
 
 
     public void ChooseHerroFrame() {
@@ -97,13 +94,16 @@ public class ChooseHerroFrame {
 //        container = chooseHerro.getContentPane();
 
 
+
+        EnterNamePanel.setVisible(false);
+        startButtonPanel.setVisible(false);
         startButtonPanel.setVisible(false);
         titleNamePanel = new JPanel();
         titleNamePanel.setBounds(100, 100, 600, 100);
         titleNamePanel.setBackground(Color.black);
 
 
-        titleNameLabel = new JLabel("CHOOSE YOUR HERRO");
+        titleNameLabel = new JLabel("Hello "+ payerName + " choose a herro");
         titleNameLabel.setForeground(Color.white);
         titleNameLabel.setFont(titleFont);
         titleNamePanel.add(titleNameLabel);
@@ -131,8 +131,6 @@ public class ChooseHerroFrame {
         herroButtunPanel.add(captainAmerica);
 
 
-
-
         container.add(titleNamePanel);
         container.add(herroButtunPanel);
 
@@ -140,7 +138,6 @@ public class ChooseHerroFrame {
     }
 
     public void enterName() {
-
 
 
 //        herroStatsPanel.setVisible(false);
@@ -155,7 +152,7 @@ public class ChooseHerroFrame {
 
 
         text = new JTextField();
-        text.setBounds(100,100,600,400);
+        text.setBounds(100, 100, 600, 400);
         text.setText("enter your name here");
         text.setBackground(Color.white);
         text.setForeground(Color.black);
@@ -164,7 +161,7 @@ public class ChooseHerroFrame {
 
 
         errorMessege = new JTextField();
-        errorMessege.setBounds(200,200,600,400);
+        errorMessege.setBounds(200, 200, 600, 400);
         errorMessege.setText("mow this is me");
         errorMessege.setBackground(Color.white);
         errorMessege.setForeground(Color.black);
@@ -179,13 +176,14 @@ public class ChooseHerroFrame {
         container.add(startButtonPanel);
 
 
-
         StartButton = new JButton("Start Game");
         StartButton.setBackground(Color.black);
         StartButton.setForeground(Color.white);
         StartButton.setFont(ButtonFont);
         StartButton.addActionListener(saveName);
         startButtonPanel.add(StartButton);
+
+
 //
 //        JButton newButton = new JButton("New Game");
 //        newButton.setBackground(Color.black);
@@ -196,10 +194,9 @@ public class ChooseHerroFrame {
 //        startButtonPanel.add(newButton);
 
 
-
     }
 
-    public  ChooseHerroFrame(){
+    public ChooseHerroFrame() {
 
         chooseHerro = new JFrame();
         chooseHerro.setSize(800, 600);
@@ -208,8 +205,6 @@ public class ChooseHerroFrame {
         chooseHerro.setLayout(null);
         chooseHerro.setVisible(true);
         container = chooseHerro.getContentPane();
-
-
 
 
 //        herroStatsPanel = new JPanel();
@@ -324,7 +319,6 @@ public class ChooseHerroFrame {
         startButtonPanel.add(newButton);
 
 
-
     }
 
     public class HerroScreenHandler implements ActionListener {
@@ -334,7 +328,7 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
 
-            createGameFrame();
+            createGameFrameNewGame();
 
 
         }
@@ -347,10 +341,9 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
 
-
-          //  "/goinfre/jdubula//Desktop/Swingy/"+ payerName+ ".txt"
+            //  "/goinfre/jdubula//Desktop/Swingy/"+ payerName+ ".txt"
             try {
-                reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/"+ "names"+ ".txt"));
+                reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + "names" + ".txt"));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -364,31 +357,33 @@ public class ChooseHerroFrame {
                 String splited[] = Line.split(" ");
 
                 int i = 0;
-                while( 3 > i ){
+                while (3 > i) {
                     playerNames.add(splited[i]);
                     i++;
                 }
 
 
-                if(playerNames.contains(text.getText())){
+                if (playerNames.contains(text.getText())) {
                     errorMessege.setText("the name is contained");
-                }
-                else {
+                    payerName = text.getText();
+                    createGameFrameContinue();
+                    theLoadingValueFuction();
+                } else {
                     errorMessege.setText("the name is not contained");
+                    payerName = text.getText();
+                     playerStatistics = herroHP + " " + level + " " + score;
+                    theSavingFuction();
+                    ChooseHerroFrame();
 
                 }
 
             }
 
 
-
-
         }
 
 
-
     }
-
 
 
     public class StartGame implements ActionListener {
@@ -415,11 +410,13 @@ public class ChooseHerroFrame {
         }
     }
 
-    public void createGameFrame() {
+    public void createGameFrameContinue() {
 
-        herroButtunPanel.setVisible(false);
-        titleNamePanel.setVisible(false);
+//         herroButtunPanel.setVisible(false);
+//            titleNamePanel.setVisible(false);
 
+        EnterNamePanel.setVisible(false);
+        startButtonPanel.setVisible(false);
 
         herroStatsPanel = new JPanel();
         herroStatsPanel.setBounds(100, 10, 600, 50);
@@ -578,12 +575,12 @@ public class ChooseHerroFrame {
         saveButton.addActionListener(saving);
         choiceButtonpanel.add(saveButton);
 
-        testButton = new JButton("Test");
-        testButton.setBackground(Color.black);
-        testButton.setForeground(Color.white);
-        testButton.setFont(ButtonFont);
-        testButton.addActionListener(testMovement);
-        choiceButtonpanel.add(testButton);
+//        testButton = new JButton("Test");
+//        testButton.setBackground(Color.black);
+//        testButton.setForeground(Color.white);
+//        testButton.setFont(ButtonFont);
+//        testButton.addActionListener(testMovement);
+//        choiceButtonpanel.add(testButton);
 
         playerStats.add(payerName);
         playerStats.add(herroHP);
@@ -591,8 +588,198 @@ public class ChooseHerroFrame {
         playerStats.add(herroAmor);
         playerStats.add(score);
         playerStats.add(herroPower);
-        playerStatistics = herroHP + " " +level+ " " + score;
+        playerStatistics = herroHP + " " + level + " " + score;
 
+
+        if (i < 5) {
+            mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has " + villen.getVillenWeapon() + "\nthe villenHP is " + villen.getRootHealth() + "\n WHAT DO YOU DO");
+        } else
+            mainTextArea.setText("please move left,right,up or down");
+        // mainTextArea.setText(villen.getVillenName() + " has appeared\nthe villen has "+ villen.getVillenWeapon()+ "\nthe villenHP is "+ villen.getRootHealth() + "\n WHAT DO YOU DO");
+
+
+    }
+
+
+    public void createGameFrameNewGame() {
+
+        herroButtunPanel.setVisible(false);
+           titleNamePanel.setVisible(false);
+
+        EnterNamePanel.setVisible(false);
+        startButtonPanel.setVisible(false);
+
+        herroStatsPanel = new JPanel();
+        herroStatsPanel.setBounds(100, 10, 600, 50);
+        herroStatsPanel.setBackground(Color.black);
+        container.add(herroStatsPanel);
+
+
+        playerHpLabel = new JLabel("PlayerHP");
+        playerHpLabel.setBounds(100, 25, 50, 50);
+        playerHpLabel.setBackground(Color.black);
+        playerHpLabel.setForeground(Color.white);
+        playerHpLabel.setFont(statsFont);
+        herroStatsPanel.add(playerHpLabel);
+
+        playerHp = new JTextArea("");
+        playerHp.setBounds(100, 50, 50, 50);
+        playerHp.setBackground(Color.black);
+        playerHp.setForeground(Color.white);
+        playerHp.setFont(statsFont);
+        playerHp.setText("" + herro.getHerroHP());
+        herroStatsPanel.add(playerHp);
+
+
+        playerLevelLabel = new JLabel("PlayerLevel");
+        playerLevelLabel.setBounds(100, 25, 50, 50);
+        playerLevelLabel.setBackground(Color.black);
+        playerLevelLabel.setForeground(Color.white);
+        playerLevelLabel.setFont(statsFont);
+        herroStatsPanel.add(playerLevelLabel);
+
+        playerLevel = new JTextArea("");
+        playerLevel.setBounds(100, 50, 50, 50);
+        playerLevel.setBackground(Color.black);
+        playerLevel.setForeground(Color.white);
+        playerLevel.setFont(statsFont);
+        playerLevel.setText("" + level);
+        herroStatsPanel.add(playerLevel);
+
+
+        playerScoreLabel = new JLabel("PlayerScore");
+        playerScoreLabel.setBounds(100, 25, 50, 50);
+        playerScoreLabel.setBackground(Color.black);
+        playerScoreLabel.setForeground(Color.white);
+        playerScoreLabel.setFont(statsFont);
+        herroStatsPanel.add(playerScoreLabel);
+
+        playerScore = new JTextArea("");
+        playerScore.setBounds(100, 50, 50, 50);
+        playerScore.setBackground(Color.black);
+        playerScore.setForeground(Color.white);
+        playerScore.setFont(statsFont);
+        playerScore.setText("" + score);
+        herroStatsPanel.add(playerScore);
+
+
+//
+//        playerWeponLebel = new JLabel("PlayerWepon");
+//        playerWeponLebel.setBounds(100,25,50,50);
+//        playerWeponLebel.setBackground(Color.black);
+//        playerWeponLebel.setForeground(Color.white);
+//        playerWeponLebel.setFont(statsFont);
+//        herroStatsPanel.add(playerWeponLebel);
+//
+//        playerWepon = new JTextArea("2000");
+//        playerWepon.setBounds(100,50,50,50);
+//        playerWepon.setBackground(Color.black);
+//        playerWepon.setForeground(Color.white);
+//        playerWepon.setFont(statsFont);
+//        herroStatsPanel.add(playerWepon);
+
+
+        mainTextPanel = new JPanel();
+        mainTextPanel.setBounds(100, 100, 600, 250);
+        mainTextPanel.setBackground(Color.black);
+        container.add(mainTextPanel);
+
+
+        mainTextArea = new JTextArea("");
+        mainTextArea.setBounds(100, 100, 600, 400);
+        mainTextArea.setBackground(Color.black);
+        mainTextArea.setForeground(Color.white);
+        mainTextArea.setFont(ButtonFont);
+        mainTextArea.setLineWrap(true);
+        mainTextPanel.add(mainTextArea);
+
+
+        choiceButtonpanel = new JPanel();
+        choiceButtonpanel.setBounds(250, 350, 300, 150);
+        choiceButtonpanel.setBackground(Color.black);
+        choiceButtonpanel.setLayout(new GridLayout(4, 1));
+        container.add(choiceButtonpanel);
+
+
+        fightButton = new JButton("Fight");
+        fightButton.setBackground(Color.black);
+        fightButton.setForeground(Color.white);
+        fightButton.setFont(ButtonFont);
+        fightButton.setFocusPainted(false);
+        fightButton.addActionListener(fightingMovement);
+        choiceButtonpanel.add(fightButton);
+
+
+        runButton = new JButton("Run");
+        runButton.setBackground(Color.black);
+        runButton.setForeground(Color.white);
+        runButton.setFont(ButtonFont);
+        runButton.setFocusPainted(false);
+        runButton.addActionListener(runningMovement);
+        choiceButtonpanel.add(runButton);
+
+
+        leftbotton = new JButton("left");
+        leftbotton.setBackground(Color.black);
+        leftbotton.setForeground(Color.white);
+        leftbotton.setFont(ButtonFont);
+        leftbotton.setFocusPainted(false);
+        leftbotton.addActionListener(leftMovement);
+        choiceButtonpanel.add(leftbotton);
+
+
+        rightbotton = new JButton("Right");
+        rightbotton.setBackground(Color.green);
+        rightbotton.setForeground(Color.white);
+        rightbotton.setFont(ButtonFont);
+        rightbotton.addActionListener(rightMovement);
+        choiceButtonpanel.add(rightbotton);
+
+        upbotton = new JButton("up");
+        upbotton.setBackground(Color.black);
+        upbotton.setForeground(Color.white);
+        upbotton.setFont(ButtonFont);
+        upbotton.setFocusPainted(false);
+        upbotton.addActionListener(upMovement);
+        choiceButtonpanel.add(upbotton);
+
+
+        downbotton = new JButton("down");
+        downbotton.setBackground(Color.black);
+        downbotton.setForeground(Color.white);
+        downbotton.setFont(ButtonFont);
+        downbotton.setFocusPainted(false);
+        downbotton.addActionListener(downMovement);
+        choiceButtonpanel.add(downbotton);
+
+        continueButton = new JButton("Continue");
+        continueButton.setBackground(Color.black);
+        continueButton.setForeground(Color.white);
+        continueButton.setFont(ButtonFont);
+        continueButton.addActionListener(continueMovement);
+        choiceButtonpanel.add(continueButton);
+
+        saveButton = new JButton("Save");
+        saveButton.setBackground(Color.black);
+        saveButton.setForeground(Color.white);
+        saveButton.setFont(ButtonFont);
+        saveButton.addActionListener(saving);
+        choiceButtonpanel.add(saveButton);
+
+//        testButton = new JButton("Test");
+//        testButton.setBackground(Color.black);
+//        testButton.setForeground(Color.white);
+//        testButton.setFont(ButtonFont);
+//        testButton.addActionListener(testMovement);
+//        choiceButtonpanel.add(testButton);
+
+        playerStats.add(payerName);
+        playerStats.add(herroHP);
+        playerStats.add(level);
+        playerStats.add(herroAmor);
+        playerStats.add(score);
+        playerStats.add(herroPower);
+        playerStatistics = herroHP + " " + level + " " + score;
 
 
         if (i < 5) {
@@ -804,11 +991,9 @@ public class ChooseHerroFrame {
                         i = 7;
                     }
 
-                }
-                else
+                } else
                     mainTextArea.setText(" please move up, down, left or right");
-            }
-            else {
+            } else {
                 mainTextArea.append("\nplease move up, down, left or right");
             }
 
@@ -824,10 +1009,8 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
 
-
-
             try {
-                reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/"+ payerName+ ".txt"));
+                reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -842,9 +1025,9 @@ public class ChooseHerroFrame {
                 herroHP = Integer.parseInt(splited[0]);
                 level = Integer.parseInt(splited[1]);
                 score = Integer.parseInt(splited[2]);
-                playerHp.setText(""+ herroHP);
-                playerLevel.setText(""+level);
-                playerScore.setText(""+score);
+                playerHp.setText("" + herroHP);
+                playerLevel.setText("" + level);
+                playerScore.setText("" + score);
 
             }
         }
@@ -859,7 +1042,7 @@ public class ChooseHerroFrame {
 
             playerNames.add(payerName);
             playerStats.toString();
-            jay =  mainTextArea.getText();
+            jay = mainTextArea.getText();
             String fileName = payerName + ".txt";
 
             FileWriter fw = null;
@@ -874,6 +1057,73 @@ public class ChooseHerroFrame {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    public void theContinueFuction() {
+        try {
+            reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                if (!((Line = reader.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            mainTextArea.setText(Line);
+            String splited[] = Line.split(" ");
+            herroHP = Integer.parseInt(splited[0]);
+            level = Integer.parseInt(splited[1]);
+            score = Integer.parseInt(splited[2]);
+            playerHp.setText("" + herroHP);
+            playerLevel.setText("" + level);
+            playerScore.setText("" + score);
+        }
+    }
+
+    public void theSavingFuction(){
+        playerNames.add(payerName);
+
+        String fileName = payerName + ".txt";
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(fileName);
+
+            String jam = playerStatistics;
+            fw.write(jam);
+
+
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void theLoadingValueFuction(){
+
+        try {
+            reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                if (!((Line = reader.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String splited[] = Line.split(" ");
+            herroHP = Integer.parseInt(splited[0]);
+            level = Integer.parseInt(splited[1]);
+            score = Integer.parseInt(splited[2]);
+            playerHp.setText("" + herroHP);
+            playerLevel.setText("" + level);
+            playerScore.setText("" + score);
+
         }
     }
 }
