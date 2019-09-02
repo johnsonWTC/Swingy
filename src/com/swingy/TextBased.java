@@ -22,7 +22,7 @@ public class TextBased {
     public static void main(String[] args) {
 
 
-        GamePlay.theGame();
+        GamePlay gamePlay = new GamePlay();
 
     }
 }

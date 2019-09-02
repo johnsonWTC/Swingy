@@ -29,7 +29,7 @@ public class GamePlayForGUI {
         int Numportion = 3;
         int runningTries = 3;
         int herroPower = herro.getHerroPower();
-        int herroHP = herro.getHerroHP();
+        int herroHP = 200;
         int herroDefense = herro.getDefense();
         int herroExpiriance = herro.getHerroExpiriance();
         int herroWeapon = herro.getWeapon();

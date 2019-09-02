@@ -29,4 +29,16 @@ public class Choices {
         return input;
 
     }
+
+
+    public static String ChooseAmar(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPlease choose a weapon?");
+        System.out.println("1. Gun");
+        System.out.println("2. Sword");
+        String input = scanner.nextLine();
+        return input;
+
+    }
 }

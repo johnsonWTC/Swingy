@@ -3,18 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="18447700-5e7d-4312-8125-8f0df6bf6bf5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$ContinueMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$ContinueMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$DownMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$DownMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$FightingMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$FightingMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$HerroScreenHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$HerroScreenHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$LeftMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$LeftMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RightMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RightMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RunningMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$RunningMovement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$UpMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$UpMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/names.txt" beforeDir="false" afterPath="$PROJECT_DIR$/names.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$SaveName.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$SaveName.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$Saving.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$Saving.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$TestMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame$TestMovement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/ChooseHerroFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlay.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlayForGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/GamePlayForGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/TextBased.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SwingyProject/com/swingy/TextBased.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/swingy/ChooseHerroFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/ChooseHerroFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/swingy/GamePlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/GamePlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/swingy/GamePlayForGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/GamePlayForGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/swingy/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/swingy/TextBased.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/swingy/TextBased.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +68,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ChooseHerroFrame">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="ChooseHerroFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.swingy.ChooseHerroFrame" />
       <module name="SwingyProject" />
@@ -118,9 +120,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.ChooseHerroFrame" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="Application.TextBased" />
       </list>
     </recent_temporary>
@@ -143,7 +145,12 @@
       <workItem from="1566280288367" duration="7259000" />
       <workItem from="1566373810767" duration="11964000" />
       <workItem from="1566457052713" duration="9660000" />
-      <workItem from="1566887418686" duration="12700000" />
+      <workItem from="1566887418686" duration="13952000" />
+      <workItem from="1566974295477" duration="686000" />
+      <workItem from="1567090089503" duration="595000" />
+      <workItem from="1567147547737" duration="6525000" />
+      <workItem from="1567241237716" duration="1163000" />
+      <workItem from="1567405961296" duration="2760000" />
     </task>
     <servers />
   </component>

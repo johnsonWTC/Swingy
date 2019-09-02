@@ -366,11 +366,11 @@ public class ChooseHerroFrame {
                 String splited[] = Line.split(" ");
 
 
-                int i = 0;
-                while (i < splited.length) {
-                    playerNames.add(splited[i]);
-                    i++;
-                }
+//                int i = 0;
+//                while (i < splited.length) {
+//                    playerNames.add(splited[i]);
+//                    i++;
+//                }
 
 
                 if (playerNames.contains(text.getText())) {
@@ -1024,6 +1024,7 @@ public class ChooseHerroFrame {
         public void actionPerformed(ActionEvent event) {
 
 
+
             try {
                 reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
             } catch (FileNotFoundException e) {
@@ -1097,7 +1098,7 @@ public class ChooseHerroFrame {
 
 
 
-    public void theSavingFuction(){
+    public   void theSavingFuction(){
        // playerNames.add(payerName);
 
         String fileName = payerName + ".txt";
@@ -1120,7 +1121,7 @@ public class ChooseHerroFrame {
     }
 
     public void theLoadingValueFuction(){
-
+    //
         try {
             reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
         } catch (FileNotFoundException e) {

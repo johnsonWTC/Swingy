@@ -8,6 +8,7 @@ public class Main {
       //  GameFrame gameFrame = new GameFrame();
 
 
-        GamePlay.theGame();
+        GamePlay gamePlay = new GamePlay();
+        gamePlay.theGame();
     }
 }

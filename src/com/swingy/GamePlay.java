@@ -1,12 +1,61 @@
 package com.swingy;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class GamePlay {
 
+    static Random random = new Random();
 
-    public static void theGame() {
+
+    boolean running = true;
+    static Herros herro = HerroMaker.HerroMaker("1");
+    static int score = 0;
+    static int portionPower = 50;
+    static int Numportion = 3;
+    static int runningTries = 3;
+    static int herroPower = herro.getHerroPower();
+    static int herroHP = herro.getHerroHP();
+    static  int herroDefense = herro.getDefense();
+    static int herroExpiriance = herro.getHerroExpiriance();
+    static int herroWeapon = herro.getWeapon();
+    static int herroAmor = herro.getHerroAmor();
+    static int herroHelm = herro.getHerroHelm();
+    static int villenStreagth = 1;
+    static int villenHit;
+    static int herroHit;
+    static int HerroLifes = 3;
+    static int NumVillen = 2;
+    static int level = 1;
+    static int boardsize = (int) ((level - 1) * 5 + 10 - (level * (0.02)));
+    static String amar ="Gun";
+
+
+//    int vellenPower = 25;
+//        int villenHealth = 100;
+//
+//        //Human;
+//        int HumanPower = 35;
+//        int portionNum = 3;
+//        int humanHealth = 250;
+//        int potionHealth = 150;
+
+
+
+    static String payerName;
+    static String Line = null;
+    static BufferedReader reader = null;
+    static String playerStatistics;
+    static  String jay;
+    static String splited[];
+    static ArrayList<Object> playerStats = new ArrayList<>();
+    static ArrayList<String> playerNames = new ArrayList<>();
+
+
+    public void theGame() {
 
 
         Random random = new Random();
@@ -17,34 +66,93 @@ public class GamePlay {
         System.out.println("/* Welcome to The Avengers Game   *\\");
         System.out.println("/*                                *\\");
         System.out.println("/**********************************\\");
-        System.out.println("Please Choose a Herro");
-        System.out.println("1. Hulk");
-        System.out.println("2. Captain  America");
-        String input = scanner.nextLine();
 
-        Herros herro =HerroMaker.HerroMaker(input);
-        System.out.println("you choose " + herro.getHerroName());
-        int score = 0;
-        int portionPower = 50;
-        int Numportion = 3;
-        int runningTries = 3;
-        int herroPower = herro.getHerroPower();
-        int herroHP = herro.getHerroHP();
-        int herroDefense = herro.getDefense();
-        int herroExpiriance = herro.getHerroExpiriance();
-        int herroWeapon = herro.getWeapon();
-        int herroAmor = herro.getHerroAmor();
-        int herroHelm = herro.getHerroHelm();
-        int villenStreagth = 1;
-        int villenHit;
-        int herroHit;
-        int HerroLifes = 3;
-        int NumVillen = 2;
-        int level = 1;
-        int boardsize = (int) ((level - 1) * 5 + 10 - (level * (0.02)));
+
+
+        ArrayList<Object> playerStats = new ArrayList<>();
+        ArrayList<String> playerNames = new ArrayList<>();
+        System.out.println("Please insert your name");
+        String input;
+        NAMES:
+        while(true){
+            input = scanner.nextLine();
+
+            if(input.isEmpty()){
+                System.out.println("please insert your name");;
+            }
+            else
+                break NAMES;
+        }
+
+
+        try {
+            ///home/pi/NetBeansProjects/Swingy
+             reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + "names" + ".txt"));
+           // reader = new BufferedReader(new FileReader("/home/pi/NetBeansProjects/Swingy/" + "names" + ".txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Game:
+        while (true) {
+            try {
+                if (!((Line = reader.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            splited = Line.split(" ");
+
+
+            int i = 0;
+            while (i < splited.length) {
+                playerNames.add(splited[i]);
+                i++;
+            }
+
+            if (playerNames.contains(input)) {
+                System.out.println("the name is contained");
+                payerName = input;
+                theLoadingValueFuction();
+                boardsize = (int) ((level - 1) * 5 + 10 - (level * (0.02)));
+
+
+
+            } else {
+                System.out.println("the name is not contained");
+                payerName = input;
+                playerStatistics = herroHP + " " + level + " " + score + " "+amar;
+                playerNames.add(input);
+                theSavingFuction();
+                dataBase();
+                WEPONS :
+                while(true){
+                    String amar = Choices.ChooseAmar();
+                    if(amar.equals("1")){
+                        amar = "Gun";
+                        break WEPONS;
+                    }
+                    else if (amar.equals("2")){
+                        amar = "Sword";
+                        break WEPONS;
+                    }
+                    else
+                    {
+                        System.out.println("please choose one or two");
+
+                    }
+
+
+                }
+                break Game;
+            }
+
+        }
+        displayStats();
         MapBuilder mapBuilder = new MapBuilder();
         mapBuilder.createCharArray(boardsize);
         mapBuilder.placePlayers();
+
 
 
         Game:
@@ -61,7 +169,7 @@ public class GamePlay {
                 villenStreagth = 3;
             }
             int villenPower = villen.getRobootPower();
-            int villenHealth = villen.getRootHealth();
+            int villenHP = villen.getRootHealth();
 
             int villenPowerTwo = villenTwo.getRobootPower();
             int villenHealthTwo = villenTwo.getRootHealth();
@@ -69,7 +177,7 @@ public class GamePlay {
 
             System.out.println("\n************* " + villen.getVillenName() + " has appeard *************   " + level + " ");
 
-            while (villenHealth >= 0) {
+            while (villenHP >= 0) {
                 input = Choices.ChoicesOnTheMap();
                 boolean gamePlay = mapBuilder.movePlayer(input);
                 int i = mapBuilder.finishgame;
@@ -84,13 +192,13 @@ public class GamePlay {
                 if (gamePlay) {
                     input = Choices.Choices();
                     if (input.equals("1")) {
-                        villenHit = simulation.gameSimulationPlayerHit(herroAmor,herroDefense,herroWeapon,level,villen.getVillenAttack());
-                         herroHit = (simulation.gameSimulationVillenHit(herroPower,herroExpiriance,herroWeapon,villen.getVillenDefense(),villen.getVillenWeapon(),level));
-                        villenHealth = villenHealth - herroHit;
-                        herroHP = herroHP - villenHit;
+                        villenHit = (herroPower* level);
+                        herroHit = (villenPower*level/2);
+                        villenHP = villenHP - villenHit;
+                        herroHP = herroHP - herroHit;
 
                         System.out.println();
-                        System.out.println("you are fighting " + villen.getVillenName() + " ,you do " + herroHit + " damage to him, he does " + villenHit + " to you");
+                        System.out.println("you are fighting " + villen.getVillenName() + " ,you do " +villenHit + " damage to him, he does " + herroHit + " to you");
                         if (herroHP < 1) {
                             System.out.println("you died. \n 1. would you like to continue \n 2. start over");
                             input = scanner.nextLine();
@@ -107,7 +215,7 @@ public class GamePlay {
                             } else
                                 break Game;
                         }
-                        if (villenHealth < 1) {
+                        if (villenHP < 1) {
 
                             score++;
                             System.out.println(villen.getVillenName() + " died your health is " + herroHP + " your score is now " + score);
@@ -116,7 +224,7 @@ public class GamePlay {
                             mapBuilder.placePlayerAfterTheVillenDies(level);
                             break;
                         } else
-                            System.out.println(villen.getVillenName() + " is not dead, he still has " + villenHealth + " health left, and your health is " + herroHP);
+                            System.out.println(villen.getVillenName() + " is not dead, he still has " + villenHP + " health left, and your health is " + herroHP);
 
                     } else if (input.equals("2")) {
 
@@ -131,17 +239,99 @@ public class GamePlay {
                             System.out.println("you ran away");
                             mapBuilder.placePlayers();
 
-                        } else {
-                            System.out.println("you ran out of run running tries");
-                            System.out.println("************* " + villen.getVillenName() + " has appeard *************");
                         }
 
-                    } else
-                        System.out.println("please choose 1, 2 or 3");
+                    }else if (input.equals("5")) {
+                        theSavingFuction();
+                        System.out.println("game saved");
+
+                    }else {
+                        System.out.println("you ran out of run running tries");
+                        System.out.println("************* " + villen.getVillenName() + " has appeard *************");
+                    }
+
+                } else
+                    System.out.println("please choose 1, 2 or 3");
 
 
-                }
             }
         }
+    }
+
+
+
+    public   void theSavingFuction(){
+        // playerNames.add(payerName);
+
+        String fileName = payerName + ".txt";
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(fileName);
+
+            String jam = playerStatistics;
+            fw.write(jam);
+
+
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+    }
+
+    public void theLoadingValueFuction(){
+        //
+        try {
+        reader = new BufferedReader(new FileReader("/goinfre/jdubula//Desktop/Swingy/" + payerName + ".txt"));
+        //    reader = new BufferedReader(new FileReader("/home/pi/NetBeansProjects/Swingy/" + payerName + ".txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        while (true) {
+            try {
+                if (!((Line = reader.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String splited[] = Line.split(" ");
+            herroHP = Integer.parseInt(splited[0]);
+            level = Integer.parseInt(splited[1]);
+            score = Integer.parseInt(splited[2]);
+            amar =  splited[3];
+
+
+        }
+    }
+
+    public void dataBase(){
+
+        FileWriter fw = null;
+
+        try {
+            fw = new FileWriter("names.txt",true);
+
+
+            fw.write(" "+ payerName);
+
+
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public void displayStats(){
+        System.out.println("Hello "+ payerName + " your stats:  ");
+        System.out.println("HP:" +herroHP);
+        System.out.println("Level: " +level);
+        System.out.println("Score: "+ score);
+        System.out.println("Amar: " +amar);
+
     }
 }
