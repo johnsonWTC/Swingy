@@ -55,6 +55,9 @@ public class GamePlay {
     static ArrayList<String> playerNames = new ArrayList<>();
 
 
+
+
+
     public void theGame() {
 
 
@@ -66,19 +69,42 @@ public class GamePlay {
         System.out.println("/* Welcome to The Avengers Game   *\\");
         System.out.println("/*                                *\\");
         System.out.println("/**********************************\\");
+        String input;
 
-
+        StartGame:
+        while (true) {
+            System.out.println("1 continue game");
+            System.out.println("2 create a hero");
+            input = scanner.nextLine();
+            if (input.equals("1")) {
+                break StartGame;
+            } else if (input.equals("2")) {
+                break StartGame;
+            } else {
+                System.out.println("Wrong Input");
+            }
+            ;
+        }
+//        System.out.println("Please insert your name");
+//        NAMES:
+//        while (true) {
+//            input = scanner.nextLine();
+//            if (input.isEmpty()) {
+//                System.out.println("please insert your name");
+//            } else
+//                break NAMES;
+//        }
 
         ArrayList<Object> playerStats = new ArrayList<>();
         ArrayList<String> playerNames = new ArrayList<>();
-        System.out.println("Please insert your name");
-        String input;
+        System.out.println("Please insert hero name");
+
         NAMES:
         while(true){
             input = scanner.nextLine();
 
             if(input.isEmpty()){
-                System.out.println("please insert your name");;
+                System.out.println("please insert hero name");;
             }
             else
                 break NAMES;
@@ -173,6 +199,7 @@ public class GamePlay {
 
             int villenPowerTwo = villenTwo.getRobootPower();
             int villenHealthTwo = villenTwo.getRootHealth();
+            theSavingFuction();
 
 
             System.out.println("\n************* " + villen.getVillenName() + " has appeard *************   " + level + " ");
@@ -185,6 +212,7 @@ public class GamePlay {
                     System.out.println("\n");
                     System.out.println("\n************* " + villen.getVillenName() + " has appeard *************   ");
                     System.out.println("\nyou are now in level " + level);
+                    score++;
                     mapBuilder.placePlayerAfterThelevelisComplete(level++);
 
                     break;
@@ -218,6 +246,7 @@ public class GamePlay {
                         if (villenHP < 1) {
 
                             score++;
+                            level++;
                             System.out.println(villen.getVillenName() + " died your health is " + herroHP + " your score is now " + score);
                             NumVillen--;
                             mapBuilder.movePlayer("5");
@@ -239,21 +268,17 @@ public class GamePlay {
                             System.out.println("you ran away");
                             mapBuilder.placePlayers();
 
+                        } else {
+                            System.out.println("you ran out of run running tries");
+                            System.out.println("************* " + villen.getVillenName() + " has appeard *************");
                         }
 
-                    }else if (input.equals("5")) {
-                        theSavingFuction();
-                        System.out.println("game saved");
-
-                    }else {
-                        System.out.println("you ran out of run running tries");
-                        System.out.println("************* " + villen.getVillenName() + " has appeard *************");
-                    }
-
-                } else
-                    System.out.println("please choose 1, 2 or 3");
+                    } else
+                        System.out.println("please choose 1, 2 or 3");
 
 
+                }
+                theSavingFuction();
             }
         }
     }
@@ -261,6 +286,8 @@ public class GamePlay {
 
 
     public   void theSavingFuction(){
+        playerStatistics = herroHP + " " + level + " " + score + " "+amar;
+        System.out.println("\nsaving ");
         // playerNames.add(payerName);
 
         String fileName = payerName + ".txt";
